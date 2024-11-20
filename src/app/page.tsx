@@ -2,9 +2,10 @@
 // @ts-nocheck
 'use client'
 import { useEffect } from "react";
-import ForwardIcon from "./Icons/ForwardIcon";
-import Logo from "./Icons/Logo";
-import TIcon from "./Icons/TIcon";
+import ForwardIcon from "../Components/Icons/ForwardIcon";
+import Logo from "../Components/Icons/Logo";
+import TIcon from "../Components/Icons/TIcon";
+import Method from "@/Components/Method";
 
 
 export default function Home() {
@@ -79,7 +80,7 @@ export default function Home() {
           <TIcon />
         </div>
       </div>
-
+      <Method />
     </div>
   );
 }

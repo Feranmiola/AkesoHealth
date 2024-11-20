@@ -19,6 +19,7 @@ const config: Config = {
 				'gray3': '#898989',
 				'light-blue': '#42AAFF',
 				'blue': '#1B7DFA',
+				'pale': '#F8F8F8',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
