@@ -12,6 +12,8 @@ const config: Config = {
 			fontFamily: {
 				sans: ['var(--font-inter)', 'sans-serif'],
 				'plus-jakarta': ['var(--font-plus-jakarta-sans)', 'sans-serif'],
+				'mono': ['var(--font-space-mono)', 'monospace'],
+				'inter-var': ['var(--font-inter-variable)', 'sans-serif'],
 			},
 			colors: {
 				'gray': '#2C2C2C',

@@ -17,6 +17,13 @@ const Services = () => {
                 height={443}
                 className='rounded-[16px]'
             />
+            <div className='w-[1200px] flex items-center justify-between h-[120px]'>
+                <div className='h-full w-[291px]'>
+                    <p className='text-gray font-mono text-base'>Operational Excellence</p>
+
+                </div>
+
+            </div>
 
         </div>
     )
