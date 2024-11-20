@@ -14,6 +14,7 @@ const config: Config = {
 				'plus-jakarta': ['var(--font-plus-jakarta-sans)', 'sans-serif'],
 			},
 			colors: {
+				'gray': '#2C2C2C',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
