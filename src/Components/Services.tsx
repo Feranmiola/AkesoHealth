@@ -1,6 +1,7 @@
 /* eslint-disable */
 import Image from 'next/image'
 import React from 'react'
+import ThrophyIcon from './Icons/ThrophyIcon'
 
 const Services = () => {
     return (
@@ -18,9 +19,22 @@ const Services = () => {
                 className='rounded-[16px]'
             />
             <div className='w-[1200px] flex items-center justify-between h-[120px]'>
-                <div className='h-full w-[291px]'>
+                <div className='h-full w-[291px] flex flex-col justify-between'>
+                    <ThrophyIcon />
                     <p className='text-gray font-mono text-base'>Operational Excellence</p>
+                    <p className='text-sm text-gray2 font-inter-var tracking-tight w-full'>We simplify healthcare operations by streamlining workflows, improving provider efficiency, and reducing administrative costs.</p>
+                </div>
 
+                <div className='h-full w-[291px] flex flex-col justify-between'>
+                    <ThrophyIcon />
+                    <p className='text-gray font-mono text-base'>Operational Excellence</p>
+                    <p className='text-sm text-gray2 font-inter-var tracking-tight w-full'>We simplify healthcare operations by streamlining workflows, improving provider efficiency, and reducing administrative costs.</p>
+                </div>
+
+                <div className='h-full w-[291px] flex flex-col justify-between'>
+                    <ThrophyIcon />
+                    <p className='text-gray font-mono text-base'>Operational Excellence</p>
+                    <p className='text-sm text-gray2 font-inter-var tracking-tight w-full'>We simplify healthcare operations by streamlining workflows, improving provider efficiency, and reducing administrative costs.</p>
                 </div>
 
             </div>
