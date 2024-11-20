@@ -16,6 +16,7 @@ const config: Config = {
 			colors: {
 				'gray': '#2C2C2C',
 				'gray2': '#393939',
+				'gray3': '#898989',
 				'light-blue': '#42AAFF',
 				'blue': '#1B7DFA',
 				background: 'hsl(var(--background))',
