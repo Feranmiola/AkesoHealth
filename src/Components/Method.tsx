@@ -4,7 +4,7 @@ import React from 'react'
 
 const Method = () => {
     return (
-        <div className='h-[2227px] bg-[#3197E4] flex flex-row w-screen py-20 justify-center space-x-[15rem] '>
+        <div className='h-[2227px] bg-[#3197E4] mt-16 flex flex-row w-screen py-20 justify-center space-x-[15rem] '>
             <div className='flex flex-col space-y-10'>
                 <p className='text-[#F8F8F8] font-plus-jakarta font-medium text-[43.13px] w-[318px] leading-[2.5rem]'>Here’s how we get it done.</p>
                 <p className='text-pale  text-base w-[328px]'>From streamlining doctor visits to empowering long-term health, our technology puts you at the center of better care.</p>
