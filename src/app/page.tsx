@@ -1,12 +1,55 @@
 /* eslint-disable */
+// @ts-nocheck
+'use client'
+import { useEffect } from "react";
 import ForwardIcon from "./Icons/ForwardIcon";
 import Logo from "./Icons/Logo";
+import TIcon from "./Icons/TIcon";
 
 
 export default function Home() {
+
+  useEffect(() => {
+    // Ensure this only runs in the browser
+    if (typeof window === "undefined") return;
+
+    let scrollTimer = 0;
+
+    // Function to update scrollbar properties
+    function updateScrollbar() {
+      const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+      const scrollbarHeight = (window.innerHeight / document.documentElement.scrollHeight) * window.innerHeight;
+      const scrollTop = scrollPercentage * (window.innerHeight - scrollbarHeight);
+
+      document.body.style.setProperty('--scroll-top', `${scrollTop}px`);
+      document.body.style.setProperty('--scrollbar-height', `${scrollbarHeight}px`);
+
+      document.body.classList.add('is-scrolling');
+
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        document.body.classList.remove('is-scrolling');
+      }, 1000);
+    }
+
+    // Add event listeners for scroll and resize
+    window.addEventListener('scroll', updateScrollbar);
+    window.addEventListener('resize', updateScrollbar);
+
+    // Initial call to set the correct scrollbar size
+    updateScrollbar();
+
+    // Cleanup event listeners on component unmount
+    return () => {
+      window.removeEventListener('scroll', updateScrollbar);
+      window.removeEventListener('resize', updateScrollbar);
+    };
+  }, []); // Empty dependency array to run only once on mount
+
+
   return (
     <div className="w-screen flex flex-col bg-[#F8F8F8] items-center justify-center">
-      <div className="h-[717px] flex flex-col items-center  w-full">
+      <div className="h-[717px] flex flex-col items-center  ">
         <div className="flex flex-row items-center py-10 space-x-2">
           <Logo />
           <p className="font-plus-jakarta text-gray font-bold text-[22.2px]">Akeso<span className="font-normal">Health</span></p>
@@ -25,8 +68,15 @@ export default function Home() {
               <p className="text-white font-medium text-base">Join Waitlist</p>
               <ForwardIcon />
             </div>
-
           </div>
+        </div>
+      </div>
+
+      <div className=" flex items-center justify-center w-screen flex-col space-y-5">
+        <TIcon />
+        <p className="text-gray2 text-center text-[22px] max-w-[587.13px]">Healthcare shouldn’t be complicated. Akeso Health uses smart technology to simplify your care—keeping your records up-to-date, helping your doctor make informed decisions, and ensuring you stay on track with personalized plans. We’re here to make healthcare work better for you.</p>
+        <div className="rotate-180">
+          <TIcon />
         </div>
       </div>
 
