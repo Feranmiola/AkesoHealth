@@ -6,6 +6,7 @@ import ForwardIcon from "../Components/Icons/ForwardIcon";
 import Logo from "../Components/Icons/Logo";
 import TIcon from "../Components/Icons/TIcon";
 import Method from "@/Components/Method";
+import Imagine from "@/Components/Imagine";
 
 
 export default function Home() {
@@ -81,6 +82,7 @@ export default function Home() {
         </div>
       </div>
       <Method />
+      <Imagine />
     </div>
   );
 }
