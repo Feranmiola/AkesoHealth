@@ -7,6 +7,7 @@ import Logo from "../Components/Icons/Logo";
 import TIcon from "../Components/Icons/TIcon";
 import Method from "@/Components/Method";
 import Imagine from "@/Components/Imagine";
+import Services from "@/Components/Services";
 
 
 export default function Home() {
@@ -83,6 +84,7 @@ export default function Home() {
       </div>
       <Method />
       <Imagine />
+      <Services />
     </div>
   );
 }
