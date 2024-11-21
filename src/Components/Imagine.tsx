@@ -106,7 +106,7 @@ const Imagine = () => {
             </motion.p>
 
             <motion.div
-                className="flex flex-row focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[590px] max-md:w-[90%] h-[60px] space-x-2 rounded-2xl bg-white p-2"
+                className="flex flex-row focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[590px] max-md:w-[90%] max-md:max-w-[367px] h-[60px] space-x-2 rounded-2xl bg-white p-2"
                 variants={itemVariants}
             >
                 <input
@@ -131,7 +131,7 @@ const Imagine = () => {
             </motion.p>
 
             <motion.p
-                className='text-[#717171] text-base tracking-tighter text-center md:hidden leading-[1rem]'
+                className='text-[#717171] text-base tracking-tighter max-w-[367px] text-center md:hidden leading-[1rem]'
                 variants={itemVariants}
             >
                 With Akeso Health, you won't have to <i className='text-[#1B7DFA]'>imagine</i>. Join<br />our email list and be the first to know about<br />innovations that make care better for everyone.
