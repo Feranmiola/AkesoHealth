@@ -27,11 +27,14 @@ export default function Home() {
     }
   }, [controls, inView]);
 
+
   useEffect(() => {
+    // Ensure this only runs in the browser
     if (typeof window === "undefined") return;
 
     let scrollTimer = 0;
 
+    // Function to update scrollbar properties
     function updateScrollbar() {
       const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
       const scrollbarHeight = (window.innerHeight / document.documentElement.scrollHeight) * window.innerHeight;
@@ -48,16 +51,19 @@ export default function Home() {
       }, 1000);
     }
 
+    // Add event listeners for scroll and resize
     window.addEventListener('scroll', updateScrollbar);
     window.addEventListener('resize', updateScrollbar);
 
+    // Initial call to set the correct scrollbar size
     updateScrollbar();
 
+    // Cleanup event listeners on component unmount
     return () => {
       window.removeEventListener('scroll', updateScrollbar);
       window.removeEventListener('resize', updateScrollbar);
     };
-  }, []);
+  }, []); // Empty dependency array to run only once on mount
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
