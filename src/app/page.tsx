@@ -120,7 +120,7 @@ export default function Home() {
                 alt={img.alt}
                 width={img.width}
                 height={img.height}
-                className={`rounded-[19.52px] absolute top-[${img.top}px] left-[${img.left}px]`}
+                className={`rounded-[19.52px] h-[${img.height}] w-[${img.width}] absolute top-[${img.top}px] left-[${img.left}px]`}
               />
             </motion.div>
           ))}
