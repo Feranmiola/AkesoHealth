@@ -183,7 +183,7 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-        className="h-[717px] md:heroBG max-md:pt-[20rem] w-screen flex flex-col items-center"
+        className="h-[717px] heroBG max-md:pt-[20rem] w-screen flex flex-col items-center"
         initial="hidden"
         animate="visible"
         variants={staggerChildren}

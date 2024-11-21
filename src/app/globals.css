@@ -66,12 +66,18 @@ html {
 
 
 .heroBG {
-  background-image: url('https://res.cloudinary.com/debiu7z1b/image/upload/v1732121598/Group_8_c6amvu.webp');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  /* Empty by default */
 }
 
+/* Apply background only for large screens and up */
+@media (min-width: 1024px) {
+  .heroBG {
+    background-image: url('https://res.cloudinary.com/debiu7z1b/image/upload/v1732121598/Group_8_c6amvu.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
 
 
 
