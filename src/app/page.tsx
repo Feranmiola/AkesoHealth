@@ -87,7 +87,7 @@ export default function Home() {
       <img
         src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732180613/Group_12_m6sgsl.webp'
         alt="Mobile Hero Images"
-        className="absolute top-0 w-screen"
+        className="absolute top-0 w-screen md:hidden"
       />
       <motion.div
         className="w-[1440px] h-[889px] absolute max-md:hidden top-0"
@@ -101,29 +101,84 @@ export default function Home() {
           animate="visible"
           variants={staggerChildren}
         >
-          {[
-            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/confident-smiling-male-doctor-medical-office_kl5xxj.webp', alt: "Hero Image 1", width: 193.98, height: 183, top: 248, left: 109 },
-            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/portrait-happy-senior-african-american-man-smiling_cd98um.webp', alt: "Hero Image 2", width: 225.53, height: 150.37, top: 639, left: 174 },
-            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/image_fx__19_1_ewquxp.webp', alt: "Hero Image 3", width: 174, height: 174, top: 552, left: 499 },
-            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/front-view-woman-celebrating-birthday-together_kf19mw.webp', alt: "Hero Image 4", width: 151, height: 175, top: 714, left: 794 },
-            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/medium-shot-smiley-man-posing-outdoors_r9tp0q.webp', alt: "Hero Image 5", width: 150.37, height: 225.53, top: 525, left: 1002 },
-            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174015/portrait-woman-smiling_u2dedn.webp', alt: "Hero Image 6", width: 151, height: 182, top: 271, left: 1169 },
-          ].map((img, index) => (
-            <motion.div
-              key={index}
-              variants={fadeInUp}
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={img.width}
-                height={img.height}
-                className={`rounded-[19.52px] h-[${img.height}] w-[${img.width}] absolute top-[${img.top}px] left-[${img.left}px]`}
-              />
-            </motion.div>
-          ))}
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/confident-smiling-male-doctor-medical-office_kl5xxj.webp'
+              alt="Hero Image 1"
+              width={194}
+              height={183}
+              className="rounded-[19.52px] h-[183px] w-[194px] absolute top-[248px] left-[109px]"
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/portrait-happy-senior-african-american-man-smiling_cd98um.webp'
+              alt="Hero Image 2"
+              width={226}
+              height={150}
+              className="rounded-[19.52px] h-[150px] w-[226px] absolute top-[639px] left-[174px]"
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/image_fx__19_1_ewquxp.webp'
+              alt="Hero Image 3"
+              width={174}
+              height={174}
+              className="rounded-[16px] h-[174px] w-[174px] absolute top-[552px] left-[499px]"
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/front-view-woman-celebrating-birthday-together_kf19mw.webp'
+              alt="Hero Image 4"
+              width={151}
+              height={175}
+              className="rounded-[16px] h-[175px] w-[151px] absolute top-[714px] left-[794px]"
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/medium-shot-smiley-man-posing-outdoors_r9tp0q.webp'
+              alt="Hero Image 5"
+              width={150}
+              height={226}
+              className="rounded-[16px] h-[226px] w-[150px] absolute top-[525px] left-[1002px]"
+            />
+          </motion.div>
+          <motion.div
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732174015/portrait-woman-smiling_u2dedn.webp'
+              alt="Hero Image 6"
+              width={151}
+              height={182}
+              className="rounded-[16px] h-[182px] w-[151px] absolute top-[271px] left-[1169px]"
+            />
+          </motion.div>
         </motion.div>
       </motion.div>
 
@@ -222,3 +277,4 @@ export default function Home() {
     </div>
   );
 }
+
