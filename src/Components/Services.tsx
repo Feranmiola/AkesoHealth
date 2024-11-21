@@ -25,14 +25,6 @@ const Services = () => {
         visible: { opacity: 1, y: 0 },
     }
 
-    const ServiceItem = ({ Icon, title, description }: any) => (
-        <motion.div className='h-full w-[291px] flex flex-col justify-between' variants={itemVariants}>
-            <Icon />
-            <p className='text-gray font-mono text-base font-medium'>{title}</p>
-            <p className='text-sm text-gray2 font-inter-var tracking-tight w-full'>{description}</p>
-        </motion.div>
-    )
-
     return (
         <motion.div
             className='bg-white h-[938px] w-screen flex flex-col space-y-7 items-center justify-center'
@@ -60,21 +52,27 @@ const Services = () => {
                 />
             </motion.div>
             <motion.div className='w-[1200px] flex items-center justify-between h-[120px]' variants={containerVariants}>
-                <ServiceItem
-                    Icon={ThrophyIcon}
-                    title="Operational Excellence"
-                    description="We simplify healthcare operations by streamlining workflows, improving provider efficiency, and reducing administrative costs."
-                />
-                <ServiceItem
-                    Icon={StatIcon}
-                    title="Data-Driven Health Insights"
-                    description="Our actionable analytics and evidence-based insights empower effective policies and better population health management."
-                />
-                <ServiceItem
-                    Icon={PersonIcon}
-                    title="Improved Patient Outcomes"
-                    description="With coordinated care plans and integrated health records, we enhance safety, improve care quality, and boost patient satisfaction."
-                />
+                <motion.div className='h-full w-[291px] flex flex-col justify-between' variants={itemVariants}>
+                    <ThrophyIcon />
+                    <p className='text-gray font-mono text-base font-medium'>Operational Excellence</p>
+                    <p className='text-sm text-gray2 font-inter-var tracking-tight w-full'>
+                        We simplify healthcare operations by streamlining workflows, improving provider efficiency, and reducing administrative costs.
+                    </p>
+                </motion.div>
+                <motion.div className='h-full w-[291px] flex flex-col justify-between' variants={itemVariants}>
+                    <StatIcon />
+                    <p className='text-gray font-mono text-base font-medium'>Data-Driven Health Insights</p>
+                    <p className='text-sm text-gray2 font-inter-var tracking-tight w-full'>
+                        Our actionable analytics and evidence-based insights empower effective policies and better population health management.
+                    </p>
+                </motion.div>
+                <motion.div className='h-full w-[291px] flex flex-col justify-between' variants={itemVariants}>
+                    <PersonIcon />
+                    <p className='text-gray font-mono text-base font-medium'>Improved Patient Outcomes</p>
+                    <p className='text-sm text-gray2 font-inter-var tracking-tight w-full'>
+                        With coordinated care plans and integrated health records, we enhance safety, improve care quality, and boost patient satisfaction.
+                    </p>
+                </motion.div>
             </motion.div>
         </motion.div>
     )
