@@ -84,8 +84,13 @@ export default function Home() {
 
   return (
     <div className="w-screen flex flex-col bg-[#F8F8F8] items-center relative justify-center">
+      <img
+        src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732180613/Group_12_m6sgsl.webp'
+        alt="Mobile Hero Images"
+        className="absolute top-0 w-screen"
+      />
       <motion.div
-        className="w-[1440px] h-[889px] absolute top-0"
+        className="w-[1440px] h-[889px] absolute max-md:hidden top-0"
         initial="hidden"
         animate="visible"
         variants={staggerChildren}
@@ -123,7 +128,7 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-        className="h-[717px] heroBG w-screen flex flex-col items-center"
+        className="h-[717px] md:heroBG max-md:pt-[20rem] w-screen flex flex-col items-center"
         initial="hidden"
         animate="visible"
         variants={staggerChildren}
@@ -132,22 +137,28 @@ export default function Home() {
           <Logo />
           <p className="font-plus-jakarta text-gray font-bold text-[22.2px]">Akeso<span className="font-normal">Health</span></p>
         </motion.div>
-        <motion.div className="flex flex-col z-50 items-center h-[290px] justify-between" variants={staggerChildren}>
+        <motion.div className="flex flex-col z-50 items-center md:h-[290px] md:justify-between max-md:space-y-5" variants={staggerChildren}>
           <motion.p
-            className="font-plus-jakarta font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] text-gray2"
+            className="font-plus-jakarta max-md:tracking-tighter max-md:leading-[2.5rem] font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] max-md:text-[40px] max-md:w-[346px] text-gray2"
             variants={fadeInUp}
           >
-            Smarter Healthcare, <span className="text-light-blue">Better</span> Lives.
+            Smarter Healthcare, <br /><span className="text-light-blue">Better</span> Lives.
           </motion.p>
           <motion.p
-            className="w-[481px] text-gray3 text-base text-center"
+            className="w-[320px] text-gray3 text-base text-center md:hidden"
+            variants={fadeInUp}
+          >
+            At Akeso Health, we're transforming healthcare for patients and providers alike.<br /> By making technology work for everyone, we're creating a future where your health comes first.
+          </motion.p>
+          <motion.p
+            className="w-[481px] text-gray3 text-base text-center max-md:hidden"
             variants={fadeInUp}
           >
             At Akeso Health, we're transforming healthcare for patients and providers alike. By making technology work for everyone, we're creating a future where your health comes first.
           </motion.p>
 
           <motion.div
-            className="flex flex-row focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[440px] h-[60px] space-x-2 rounded-2xl bg-white p-2"
+            className="flex flex-row max-md:hidden focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[440px] h-[60px] space-x-2 rounded-2xl bg-white p-2"
             variants={fadeInUp}
           >
             <input
@@ -160,6 +171,27 @@ export default function Home() {
               <ForwardIcon />
             </div>
           </motion.div>
+          <div className="flex flex-col w-full items-center justify-center space-y-2 md:hidden">
+
+            <motion.div
+              className="flex flex-row md:hidden focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[346px] h-[57px] space-x-2 rounded-2xl bg-white p-2"
+              variants={fadeInUp}
+            >
+              <input
+                type="email"
+                placeholder="Enter e-mail address"
+                className="flex-1 flex outline-none bg-transparent active:outline-none focus:outline-none text-gray placeholder:text-gray3 text-base"
+              />
+            </motion.div>
+
+            <div className="bg-blue rounded-[10px] w-[139px] h-[44px] flex flex-row space-x-1 items-center justify-center cursor-pointer">
+              <p className="text-white font-medium text-base">Join Waitlist</p>
+              <ForwardIcon />
+            </div>
+
+          </div>
+
+
         </motion.div>
       </motion.div>
 
@@ -174,7 +206,7 @@ export default function Home() {
           <TIcon />
         </motion.div>
         <motion.p
-          className="text-gray2 text-center text-[22px] max-w-[587.13px]"
+          className="text-gray2 text-center text-[22px] max-md:text-[18px] max-md:w-[313px] max-w-[587.13px]"
           variants={fadeInUp}
         >
           Healthcare shouldn't be complicated. Akeso Health uses smart technology to simplify your care—keeping your records up-to-date, helping your doctor make informed decisions, and ensuring you stay on track with personalized plans. We're here to make healthcare work better for you.
