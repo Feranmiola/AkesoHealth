@@ -5,6 +5,9 @@ import { motion } from 'framer-motion'
 import MailIcon from './Icons/MailIcon'
 import DotIcon from './Icons/DotIcon'
 import Footerline from './Icons/Footerline'
+import FooterLineSmall from './Icons/FooterLineSmall'
+import MailIconSmall from './Icons/MailIconSmall'
+import ForwardIcon from './Icons/ForwardIcon'
 
 const Footer = () => {
     const [isHovered, setIsHovered] = useState(false)
@@ -64,11 +67,30 @@ const Footer = () => {
             variants={containerVariants}
         >
             <motion.div className='flex flex-col items-center justify-center w-full space-y-7' variants={containerVariants}>
-                <motion.p className='text-[#656565] text-sm font-inter-var' variants={itemVariants}>
+                <motion.p className='text-[#656565] text-sm font-inter-var max-md:hidden' variants={itemVariants}>
                     Discover how Akeso Health can support your healthcare goals.
                 </motion.p>
+                <motion.p className='text-[#656565] text-sm md:hidden text-center font-inter-var' variants={itemVariants}>
+                    Discover how Akeso Health can <br />support your healthcare goals.
+                </motion.p>
+                <div className='md:hidden flex flex-col items-center justify-center space-y-3'>
+                    <MailIconSmall />
+
+                    <p className='text-[#1B7DFA] tracking-tighter text-[23.46px] font-plus-jakarta'>
+                        jack@akesohealthnetwork.com
+                    </p>
+
+                    <motion.div
+                        className="bg-blue rounded-[10px] w-[139px] h-[44px] flex flex-row space-x-1 items-center justify-center cursor-pointer"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <p className="text-white font-medium text-base">Send e-mail</p>
+                        <ForwardIcon />
+                    </motion.div>
+                </div>
                 <motion.div
-                    className='relative w-full overflow-hidden'
+                    className='relative w-full overflow-hidden max-md:hidden'
                     variants={itemVariants}
                 >
                     <motion.div
@@ -88,8 +110,12 @@ const Footer = () => {
                 </motion.div>
             </motion.div>
 
-            <motion.div className='w-full' variants={itemVariants}>
+            <motion.div className='w-full max-md:hidden' variants={itemVariants}>
                 <Footerline />
+            </motion.div>
+
+            <motion.div className='w-full md:hidden' variants={itemVariants}>
+                <FooterLineSmall />
             </motion.div>
 
             <motion.p className='text-[#656565] text-sm font-inter-var' variants={itemVariants}>
