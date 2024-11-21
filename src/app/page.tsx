@@ -8,6 +8,7 @@ import TIcon from "../Components/Icons/TIcon";
 import Method from "@/Components/Method";
 import Imagine from "@/Components/Imagine";
 import Services from "@/Components/Services";
+import Footer from "@/Components/Footer";
 
 
 export default function Home() {
@@ -85,6 +86,7 @@ export default function Home() {
       <Method />
       <Imagine />
       <Services />
+      <Footer />
     </div>
   );
 }
