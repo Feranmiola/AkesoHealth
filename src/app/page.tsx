@@ -95,7 +95,8 @@ export default function Home() {
         title="Akeso Health"
         description="At Akeso Health, we’re transforming healthcare for patients and providers alike. By making technology work for everyone, we’re creating a future where your health comes first."
         canonical="https://www.akesohealthnetwork.com"
-        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1732229647/Frame_1000004110_sgpfqc.jpg"
+        // ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1732229647/Frame_1000004110_sgpfqc.jpg"
+        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1732230291/Frame_1000004110_jqq587.png"
         ogType="website"
         twitterHandle=""
       />
