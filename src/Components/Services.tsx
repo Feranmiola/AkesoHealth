@@ -27,31 +27,37 @@ const Services = () => {
 
     return (
         <motion.div
-            className='bg-white h-[938px] w-screen flex flex-col space-y-7 items-center justify-center'
+            className='bg-white h-[938px] w-screen flex flex-col space-y-7 items-center md:justify-center max-md:py-10'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={containerVariants}
         >
-            <motion.div className='w-[1213.69px] flex flex-row items-end justify-between' variants={containerVariants}>
-                <motion.p className='text-[45.59px] text-light-blue font-medium leading-[2.5rem] font-plus-jakarta' variants={itemVariants}>
+            <motion.div className='md:w-[1213.69px] max-w-[98%] max-md:w-[352px] max-md:h-[111px] flex flex-row max-md:flex-col md:items-end justify-between' variants={containerVariants}>
+                <motion.p className='text-[45.59px] max-md:text-2xl text-light-blue font-medium leading-[2.5rem] font-plus-jakarta' variants={itemVariants}>
                     Akeso, because healthcare<br /> deserves better.
                 </motion.p>
-                <motion.p className='text-gray2 text-base text-center' variants={itemVariants}>
+                <motion.p className='text-gray2 text-base max-md:tracking-tighter md:text-center' variants={itemVariants}>
                     At Akeso, we don't just fix what's broken—we build <br />smarter solutions that put care back in healthcare.
                 </motion.p>
             </motion.div>
 
-            <motion.div variants={itemVariants} whileHover={{ scale: 1.05, filter: "brightness(1.2)" }} transition={{ duration: 0.3 }}>
+            <motion.div className='w-full flex items-center justify-center' variants={itemVariants} whileHover={{ scale: 1.05, filter: "brightness(1.2)" }} transition={{ duration: 0.3 }}>
                 <Image
                     src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732145032/team-young-specialist-doctors-standing-corridor-hospital_xaxlcb.webp'
                     alt='Doctor Image'
                     width={1200}
                     height={443}
-                    className='rounded-[16px]'
+                    className='rounded-[16px] max-md:hidden'
+                />
+
+                <img
+                    src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732187324/team-young-specialist-doctors-standing-corridor-hospital_1_zxlcow.webp'
+                    alt='Doctor Image'
+                    className='rounded-[8px] md:hidden w-[90%]'
                 />
             </motion.div>
-            <motion.div className='w-[1200px] flex items-center justify-between h-[120px]' variants={containerVariants}>
+            <motion.div className='md:w-[1200px] max-md:space-y-5 flex max-md:flex-col items-center justify-between h-[120px]' variants={containerVariants}>
                 <motion.div className='h-full w-[291px] flex flex-col justify-between' variants={itemVariants}>
                     <ThrophyIcon />
                     <p className='text-gray font-mono text-base font-medium'>Operational Excellence</p>
