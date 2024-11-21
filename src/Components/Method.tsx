@@ -1,4 +1,3 @@
-/* eslint-disable */
 'use client'
 
 import Image from 'next/image'
@@ -31,13 +30,17 @@ const Method = () => {
 
     return (
         <motion.div
-            className='md:h-[2227px] bg-[#3197E4] mt-16 flex flex-row max-md:flex-col w-screen py-20 justify-center md:space-x-[15rem] max-md:space-y-16 max-md:px-3'
+            className='bg-[#3197E4] mt-16 relative flex flex-row max-md:flex-col w-screen py-20 justify-center md:space-x-[15rem] max-md:space-y-16 max-md:px-3 lg:min-h-screen'
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.1 }}
             variants={containerVariants}
         >
-            <motion.div className='flex flex-col md:space-y-10 max-md:h-[103px] max-md:justify-between' variants={containerVariants}>
+            <motion.div
+                id='howDiv'
+                className='flex lg:sticky lg:top-20 flex-col md:space-y-10 max-md:h-[103px] max-md:justify-between lg:h-[calc(50vh-5rem)]'
+                variants={containerVariants}
+            >
                 <motion.p
                     className='text-[#F8F8F8] font-plus-jakarta font-medium max-md:text-[24px] text-[43.13px] w-[318px] leading-[2.5rem]'
                     variants={itemVariants}
@@ -45,15 +48,15 @@ const Method = () => {
                     Here's how we get it done.
                 </motion.p>
                 <motion.p
-                    className='text-pale font-inter-var  text-base w-[328px]'
+                    className='text-pale font-inter-var text-base w-[328px]'
                     variants={itemVariants}
                 >
                     From streamlining doctor visits to empowering long-term health, our technology puts you at the center of better care.
                 </motion.p>
             </motion.div>
 
-            <motion.div className='h-full flex flex-col max-md:space-y-10 justify-between md:w-[539px] max-md:w-full' variants={containerVariants}>
-                <motion.div className='w-full  flex flex-col space-y-2' variants={itemVariants}>
+            <motion.div id='MethodsContent' className='h-full flex flex-col max-md:space-y-10 md:space-y-20 justify-between md:w-[539px] max-md:w-full' variants={containerVariants}>
+                <motion.div className='w-full flex flex-col space-y-2' variants={itemVariants}>
                     <motion.p className='text-base font-mono text-[#DEEAFF]' variants={itemVariants}>
                         [Simpler Healthcare for Providers]
                     </motion.p>
@@ -109,13 +112,13 @@ const Method = () => {
                         </motion.div>
                     </div>
                     <motion.p className='font-bold text-base text-pale' variants={itemVariants}>
-                        Your information, always where it’s needed,<br />when it’s needed.
+                        Your information, always where it's needed,<br />when it's needed.
                     </motion.p>
                 </motion.div>
 
-                <motion.div className='w-full  flex flex-col space-y-2' variants={itemVariants}>
+                <motion.div className='w-full flex flex-col space-y-2' variants={itemVariants}>
                     <motion.p className='text-base font-mono text-[#DEEAFF]' variants={itemVariants}>
-                        [Long-Term Care That’s Proactive]
+                        [Long-Term Care That's Proactive]
                     </motion.p>
                     <motion.p className='text-pale text-base' variants={itemVariants}>
                         With personalized care plans and continuous monitoring, we<br /> help you stay on track and prevent issues before they arise.
@@ -138,20 +141,18 @@ const Method = () => {
                             />
                         </motion.div>
                     </div>
-
                     <motion.p className='font-bold text-base text-pale' variants={itemVariants}>
-                        Your health is more than a single visit—it’s —<br />a lifelong journey.
+                        Your health is more than a single visit—it's <br />a lifelong journey.
                     </motion.p>
                 </motion.div>
 
-                <motion.div className='w-full  flex flex-col space-y-2' variants={itemVariants}>
+                <motion.div className='w-full flex flex-col space-y-2' variants={itemVariants}>
                     <motion.p className='text-base font-mono text-[#DEEAFF]' variants={itemVariants}>
                         [Better Community Health Insights]
                     </motion.p>
                     <motion.p className='text-pale text-base' variants={itemVariants}>
                         We work with public health experts to analyze <br /> trends and improve health at a larger scale.
                     </motion.p>
-
                     <div>
                         <motion.div className='max-md:hidden'>
                             <Image
