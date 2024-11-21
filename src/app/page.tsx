@@ -198,7 +198,7 @@ export default function Home() {
           <Logo />
           <p className="font-plus-jakarta text-gray font-bold text-[22.2px]">Akeso<span className="font-normal">Health</span></p>
         </motion.div>
-        <motion.div className="flex flex-col z-50 items-center md:h-[290px] md:justify-between max-md:space-y-5" variants={staggerChildren}>
+        <motion.div className="flex flex-col z-50 md:mt-[5rem] items-center md:h-[290px] md:justify-between max-md:space-y-5" variants={staggerChildren}>
           <motion.p
             className="font-plus-jakarta max-md:tracking-tighter max-md:leading-[2.5rem] font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] max-md:text-[40px] max-md:w-[346px] text-gray2"
             variants={fadeInUp}
