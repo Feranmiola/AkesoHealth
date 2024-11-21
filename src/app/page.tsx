@@ -91,7 +91,7 @@ export default function Home() {
         variants={staggerChildren}
       >
         <motion.div
-          className="w-full h-full relative"
+          className="w-full z-20 h-full relative"
           initial="hidden"
           animate="visible"
           variants={staggerChildren}
@@ -128,11 +128,11 @@ export default function Home() {
         animate="visible"
         variants={staggerChildren}
       >
-        <motion.div className="flex flex-row items-center py-10 space-x-2" variants={fadeInUp}>
+        <motion.div className="flex z-50 flex-row items-center py-10 space-x-2" variants={fadeInUp}>
           <Logo />
           <p className="font-plus-jakarta text-gray font-bold text-[22.2px]">Akeso<span className="font-normal">Health</span></p>
         </motion.div>
-        <motion.div className="flex flex-col items-center h-[290px] justify-between" variants={staggerChildren}>
+        <motion.div className="flex flex-col z-50 items-center h-[290px] justify-between" variants={staggerChildren}>
           <motion.p
             className="font-plus-jakarta font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] text-gray2"
             variants={fadeInUp}
