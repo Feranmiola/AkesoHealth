@@ -48,7 +48,7 @@ const Imagine = () => {
             animate="visible"
             variants={containerVariants}
         >
-            <motion.div className='w-[1440px] flex items-center justify-center absolute top-0' variants={containerVariants}>
+            <motion.div className='w-[1440px] max-md:hidden flex items-center justify-center absolute top-0' variants={containerVariants}>
                 <div className='w-full relative'>
                     <motion.div variants={imageVariants} >
                         <Image
@@ -99,20 +99,20 @@ const Imagine = () => {
                 [Join the Waitlist]
             </motion.p>
             <motion.p
-                className='text-blue font-plus-jakarta font-medium text-center leading-[4.5rem] text-[75.22px]'
+                className='text-blue font-plus-jakarta font-medium max-md:text-[40px] max-md:leading-[2.5rem] text-center leading-[4.5rem] text-[75.22px]'
                 variants={itemVariants}
             >
                 <span className='text-[#42AAFF]'>Imagine<br /></span> healthcare that <br />truly works for you.
             </motion.p>
 
             <motion.div
-                className="flex flex-row focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[590px] h-[60px] space-x-2 rounded-2xl bg-white p-2"
+                className="flex flex-row focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[590px] max-md:w-[90%] h-[60px] space-x-2 rounded-2xl bg-white p-2"
                 variants={itemVariants}
             >
                 <input
                     type="email"
                     placeholder="Enter e-mail address"
-                    className="flex-1 flex outline-none bg-transparent active:outline-none focus:outline-none text-gray placeholder:text-gray3 text-base"
+                    className="flex-1 max-md:w-[60%] flex outline-none bg-transparent active:outline-none focus:outline-none text-gray placeholder:text-gray3 text-base"
                 />
                 <motion.div
                     className="bg-blue rounded-[10px] w-[139px] h-[44px] flex flex-row space-x-1 items-center justify-center cursor-pointer"
@@ -124,10 +124,17 @@ const Imagine = () => {
                 </motion.div>
             </motion.div>
             <motion.p
-                className='text-[#717171] text-base text-center leading-[1rem]'
+                className='text-[#717171] text-base text-center max-md:hidden leading-[1rem]'
                 variants={itemVariants}
             >
                 With Akeso Health, you won't have to <i className='text-[#1B7DFA]'>imagine</i>. Join our email list and be<br /> the first to know about innovations that make care better for everyone.
+            </motion.p>
+
+            <motion.p
+                className='text-[#717171] text-base tracking-tighter text-center md:hidden leading-[1rem]'
+                variants={itemVariants}
+            >
+                With Akeso Health, you won't have to <i className='text-[#1B7DFA]'>imagine</i>. Join<br />our email list and be the first to know about<br />innovations that make care better for everyone.
             </motion.p>
 
             <motion.div className='rotate-180 mt-10' variants={itemVariants}>
