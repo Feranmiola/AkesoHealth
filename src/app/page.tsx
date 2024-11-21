@@ -1,7 +1,10 @@
 /* eslint-disable */
-// @ts-nocheck
+//@ts-nocheck
 'use client'
+
 import { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import ForwardIcon from "../Components/Icons/ForwardIcon";
 import Logo from "../Components/Icons/Logo";
 import TIcon from "../Components/Icons/TIcon";
@@ -9,17 +12,26 @@ import Method from "@/Components/Method";
 import Imagine from "@/Components/Imagine";
 import Services from "@/Components/Services";
 import Footer from "@/Components/Footer";
-
+import Image from "next/image";
 
 export default function Home() {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   useEffect(() => {
-    // Ensure this only runs in the browser
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  useEffect(() => {
     if (typeof window === "undefined") return;
 
     let scrollTimer = 0;
 
-    // Function to update scrollbar properties
     function updateScrollbar() {
       const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
       const scrollbarHeight = (window.innerHeight / document.documentElement.scrollHeight) * window.innerHeight;
@@ -36,53 +48,141 @@ export default function Home() {
       }, 1000);
     }
 
-    // Add event listeners for scroll and resize
     window.addEventListener('scroll', updateScrollbar);
     window.addEventListener('resize', updateScrollbar);
 
-    // Initial call to set the correct scrollbar size
     updateScrollbar();
 
-    // Cleanup event listeners on component unmount
     return () => {
       window.removeEventListener('scroll', updateScrollbar);
       window.removeEventListener('resize', updateScrollbar);
     };
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
+  const staggerChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const imageHoverVariants = {
+    hover: {
+      scale: 1.05,
+      filter: "brightness(1.2)",
+      transition: { duration: 0.3 },
+    },
+  };
 
   return (
-    <div className="w-screen flex flex-col bg-[#F8F8F8] items-center justify-center">
-      <div className="h-[717px] heroBG w-screen flex flex-col items-center  ">
-        <div className="flex flex-row items-center py-10 space-x-2">
+    <div className="w-screen flex flex-col bg-[#F8F8F8] items-center relative justify-center">
+      <motion.div
+        className="w-[1440px] h-[889px] absolute top-0"
+        initial="hidden"
+        animate="visible"
+        variants={staggerChildren}
+      >
+        <motion.div
+          className="w-full h-full relative"
+          initial="hidden"
+          animate="visible"
+          variants={staggerChildren}
+        >
+          {[
+            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/confident-smiling-male-doctor-medical-office_kl5xxj.webp', alt: "Hero Image 1", width: 193.98, height: 183, top: 248, left: 109 },
+            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/portrait-happy-senior-african-american-man-smiling_cd98um.webp', alt: "Hero Image 2", width: 225.53, height: 150.37, top: 639, left: 174 },
+            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/image_fx__19_1_ewquxp.webp', alt: "Hero Image 3", width: 174, height: 174, top: 552, left: 499 },
+            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/front-view-woman-celebrating-birthday-together_kf19mw.webp', alt: "Hero Image 4", width: 151, height: 175, top: 714, left: 794 },
+            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174014/medium-shot-smiley-man-posing-outdoors_r9tp0q.webp', alt: "Hero Image 5", width: 150.37, height: 225.53, top: 525, left: 1002 },
+            { src: 'https://res.cloudinary.com/debiu7z1b/image/upload/v1732174015/portrait-woman-smiling_u2dedn.webp', alt: "Hero Image 6", width: 151, height: 182, top: 271, left: 1169 },
+          ].map((img, index) => (
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={img.width}
+                height={img.height}
+                className={`rounded-[19.52px] absolute top-[${img.top}px] left-[${img.left}px]`}
+              />
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        className="h-[717px] heroBG w-screen flex flex-col items-center"
+        initial="hidden"
+        animate="visible"
+        variants={staggerChildren}
+      >
+        <motion.div className="flex flex-row items-center py-10 space-x-2" variants={fadeInUp}>
           <Logo />
           <p className="font-plus-jakarta text-gray font-bold text-[22.2px]">Akeso<span className="font-normal">Health</span></p>
-        </div>
-        <div className="flex flex-col items-center h-[290px] justify-between">
-          <p className="font-plus-jakarta font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] text-gray2">Smarter Healthcare, <span className="text-light-blue">Better</span> Lives.</p>
-          <p className="w-[481px] text-gray3 text-base text-center">At Akeso Health, we’re transforming healthcare for patients and providers alike. By making technology work for everyone, we’re creating a future where your health comes first.</p>
+        </motion.div>
+        <motion.div className="flex flex-col items-center h-[290px] justify-between" variants={staggerChildren}>
+          <motion.p
+            className="font-plus-jakarta font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] text-gray2"
+            variants={fadeInUp}
+          >
+            Smarter Healthcare, <span className="text-light-blue">Better</span> Lives.
+          </motion.p>
+          <motion.p
+            className="w-[481px] text-gray3 text-base text-center"
+            variants={fadeInUp}
+          >
+            At Akeso Health, we're transforming healthcare for patients and providers alike. By making technology work for everyone, we're creating a future where your health comes first.
+          </motion.p>
 
-          <div className="flex flex-row focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[440px] h-[60px] space-x-2  rounded-2xl bg-white p-2">
+          <motion.div
+            className="flex flex-row focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[440px] h-[60px] space-x-2 rounded-2xl bg-white p-2"
+            variants={fadeInUp}
+          >
             <input
               type="email"
               placeholder="Enter e-mail address"
-              className=" flex-1 flex outline-none bg-transparent active:outline-none focus:outline-none text-gray placeholder:text-gray3 text-base"
+              className="flex-1 flex outline-none bg-transparent active:outline-none focus:outline-none text-gray placeholder:text-gray3 text-base"
             />
             <div className="bg-blue rounded-[10px] w-[139px] h-[44px] flex flex-row space-x-1 items-center justify-center cursor-pointer">
               <p className="text-white font-medium text-base">Join Waitlist</p>
               <ForwardIcon />
             </div>
-          </div>
-        </div>
-      </div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
-      <div className=" flex items-center justify-center w-screen flex-col space-y-5">
-        <TIcon />
-        <p className="text-gray2 text-center text-[22px] max-w-[587.13px]">Healthcare shouldn’t be complicated. Akeso Health uses smart technology to simplify your care—keeping your records up-to-date, helping your doctor make informed decisions, and ensuring you stay on track with personalized plans. We’re here to make healthcare work better for you.</p>
-        <div className="rotate-180">
+      <motion.div
+        className="flex items-center pt-[12rem] justify-center w-screen flex-col space-y-5"
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={staggerChildren}
+      >
+        <motion.div variants={fadeInUp}>
           <TIcon />
-        </div>
-      </div>
+        </motion.div>
+        <motion.p
+          className="text-gray2 text-center text-[22px] max-w-[587.13px]"
+          variants={fadeInUp}
+        >
+          Healthcare shouldn't be complicated. Akeso Health uses smart technology to simplify your care—keeping your records up-to-date, helping your doctor make informed decisions, and ensuring you stay on track with personalized plans. We're here to make healthcare work better for you.
+        </motion.p>
+        <motion.div className="rotate-180" variants={fadeInUp}>
+          <TIcon />
+        </motion.div>
+      </motion.div>
       <Method />
       <Imagine />
       <Services />
