@@ -81,6 +81,7 @@ const Footer = () => {
                     </p>
 
                     <motion.div
+                        onClick={() => window.location.href = 'mailto:jack@akesohealthnetwork.com'}
                         className="bg-blue rounded-[10px] w-[139px] h-[44px] flex flex-row space-x-1 items-center justify-center cursor-pointer"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}

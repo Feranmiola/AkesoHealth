@@ -13,6 +13,7 @@ import Imagine from "@/Components/Imagine";
 import Services from "@/Components/Services";
 import Footer from "@/Components/Footer";
 import Image from "next/image";
+import SEO from "@/Components/SEO";
 
 export default function Home() {
   const controls = useAnimation();
@@ -90,6 +91,14 @@ export default function Home() {
 
   return (
     <div className="w-screen flex flex-col bg-[#F8F8F8] items-center relative justify-center">
+      <SEO
+        title="Akeso Health"
+        description="At Akeso Health, we’re transforming healthcare for patients and providers alike. By making technology work for everyone, we’re creating a future where your health comes first."
+        canonical="https://www.akesohealthnetwork.com"
+        ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1732229647/Frame_1000004110_sgpfqc.jpg"
+        ogType="website"
+        twitterHandle=""
+      />
       <img
         src='https://res.cloudinary.com/debiu7z1b/image/upload/v1732180613/Group_12_m6sgsl.webp'
         alt="Mobile Hero Images"
@@ -194,11 +203,11 @@ export default function Home() {
         animate="visible"
         variants={staggerChildren}
       >
-        <motion.div className="flex z-50 flex-row items-center py-10 space-x-2" variants={fadeInUp}>
+        <motion.div className="flex z-50 flex-row items-center md:mt-[5rem] py-10 space-x-2" variants={fadeInUp}>
           <Logo />
           <p className="font-plus-jakarta text-gray font-bold text-[22.2px]">Akeso<span className="font-normal">Health</span></p>
         </motion.div>
-        <motion.div className="flex flex-col z-50 md:mt-[5rem] items-center md:h-[290px] md:justify-between max-md:space-y-5" variants={staggerChildren}>
+        <motion.div className="flex flex-col z-50 items-center md:h-[290px] md:justify-between max-md:space-y-5" variants={staggerChildren}>
           <motion.p
             className="font-plus-jakarta max-md:tracking-tighter max-md:leading-[2.5rem] font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] max-md:text-[40px] max-md:w-[346px] text-gray2"
             variants={fadeInUp}
