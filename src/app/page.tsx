@@ -28,14 +28,11 @@ export default function Home() {
     }
   }, [controls, inView]);
 
-
   useEffect(() => {
-    // Ensure this only runs in the browser
     if (typeof window === "undefined") return;
 
     let scrollTimer = 0;
 
-    // Function to update scrollbar properties
     function updateScrollbar() {
       const scrollPercentage = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
       const scrollbarHeight = (window.innerHeight / document.documentElement.scrollHeight) * window.innerHeight;
@@ -52,19 +49,16 @@ export default function Home() {
       }, 1000);
     }
 
-    // Add event listeners for scroll and resize
     window.addEventListener('scroll', updateScrollbar);
     window.addEventListener('resize', updateScrollbar);
 
-    // Initial call to set the correct scrollbar size
     updateScrollbar();
 
-    // Cleanup event listeners on component unmount
     return () => {
       window.removeEventListener('scroll', updateScrollbar);
       window.removeEventListener('resize', updateScrollbar);
     };
-  }, []); // Empty dependency array to run only once on mount
+  }, []);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -93,9 +87,8 @@ export default function Home() {
     <div className="w-screen flex flex-col bg-[#F8F8F8] items-center relative justify-center">
       <SEO
         title="Akeso Health"
-        description="At Akeso Health, we’re transforming healthcare for patients and providers alike. By making technology work for everyone, we’re creating a future where your health comes first."
+        description="At Akeso Health, we're transforming healthcare for patients and providers alike. By making technology work for everyone, we're creating a future where your health comes first."
         canonical="https://www.akesohealthnetwork.com"
-        // ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1732229647/Frame_1000004110_sgpfqc.jpg"
         ogImage="https://res.cloudinary.com/debiu7z1b/image/upload/v1732230291/Frame_1000004110_jqq587.png"
         ogType="website"
         twitterHandle=""
@@ -106,7 +99,7 @@ export default function Home() {
         className="absolute top-0 w-screen md:hidden"
       />
       <motion.div
-        className="w-[1440px] h-[889px] absolute max-md:hidden top-0"
+        className="w-full max-w-[1440px] h-[889px] absolute max-md:hidden top-0 md:hidden lg:block lg:w-[95%] xl:w-full"
         initial="hidden"
         animate="visible"
         variants={staggerChildren}
@@ -199,7 +192,7 @@ export default function Home() {
       </motion.div>
 
       <motion.div
-        className="h-[717px] heroBG max-md:pt-[20rem] w-screen flex flex-col items-center"
+        className="h-[717px] heroBG max-md:pt-[20rem] w-screen flex flex-col items-center md:h-auto lg:h-[800px] xl:h-[889px]"
         initial="hidden"
         animate="visible"
         variants={staggerChildren}
@@ -208,9 +201,9 @@ export default function Home() {
           <Logo />
           <p className="font-plus-jakarta text-gray font-bold text-[22.2px]">Akeso<span className="font-normal">Health</span></p>
         </motion.div>
-        <motion.div className="flex flex-col z-50 items-center md:h-[290px] md:justify-between max-md:space-y-5" variants={staggerChildren}>
+        <motion.div className="flex flex-col z-50 items-center md:h-[290px] md:justify-between max-md:space-y-5 lg:h-[320px] xl:h-[350px]" variants={staggerChildren}>
           <motion.p
-            className="font-plus-jakarta max-md:tracking-tighter max-md:leading-[2.5rem] font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] max-md:text-[40px] max-md:w-[346px] text-gray2"
+            className="font-plus-jakarta max-md:tracking-tighter max-md:leading-[2.5rem] font-medium w-[672px] text-center leading-[4rem] tracking-tight text-[70px] max-md:text-[40px] max-md:w-[346px] text-gray2 md:text-[60px] lg:text-[65px] xl:text-[70px]"
             variants={fadeInUp}
           >
             Smarter Healthcare, <br /><span className="text-light-blue">Better</span> Lives.
@@ -222,14 +215,14 @@ export default function Home() {
             At Akeso Health, we're transforming healthcare for patients and providers alike.<br /> By making technology work for everyone, we're creating a future where your health comes first.
           </motion.p>
           <motion.p
-            className="w-[481px] text-gray3 text-base text-center max-md:hidden"
+            className="w-[481px] text-gray3 text-base text-center max-md:hidden md:w-[90%] lg:w-[481px]"
             variants={fadeInUp}
           >
             At Akeso Health, we're transforming healthcare for patients and providers alike. By making technology work for everyone, we're creating a future where your health comes first.
           </motion.p>
 
           <motion.div
-            className="flex flex-row max-md:hidden focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[440px] h-[60px] space-x-2 rounded-2xl bg-white p-2"
+            className="flex flex-row max-md:hidden focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[440px] h-[60px] space-x-2 rounded-2xl bg-white p-2  lg:w-[440px]"
             variants={fadeInUp}
           >
             <input
@@ -243,7 +236,6 @@ export default function Home() {
             </div>
           </motion.div>
           <div className="flex flex-col w-full items-center justify-center space-y-2 md:hidden">
-
             <motion.div
               className="flex flex-row md:hidden focus-within:border-blue border-[1px] border-transparent transition ease-in-out items-center w-[346px] h-[57px] space-x-2 rounded-2xl bg-white p-2"
               variants={fadeInUp}
@@ -259,15 +251,12 @@ export default function Home() {
               <p className="text-white font-medium text-base">Join Waitlist</p>
               <ForwardIcon />
             </div>
-
           </div>
-
-
         </motion.div>
       </motion.div>
 
       <motion.div
-        className="flex items-center pt-[12rem] justify-center w-screen flex-col space-y-5"
+        className="flex items-center pt-[12rem] justify-center w-screen flex-col space-y-5 md:pt-[8rem] lg:pt-[10rem] xl:pt-[12rem]"
         ref={ref}
         initial="hidden"
         animate={controls}
@@ -277,7 +266,7 @@ export default function Home() {
           <TIcon />
         </motion.div>
         <motion.p
-          className="text-gray2 text-center text-[22px] max-md:text-[18px] max-md:w-[313px] max-w-[587.13px]"
+          className="text-gray2 text-center text-[22px] max-md:text-[18px] max-md:w-[313px] max-w-[587.13px] md:w-[90%] lg:w-[587.13px]"
           variants={fadeInUp}
         >
           Healthcare shouldn't be complicated. Akeso Health uses smart technology to simplify your care—keeping your records up-to-date, helping your doctor make informed decisions, and ensuring you stay on track with personalized plans. We're here to make healthcare work better for you.
